@@ -26,40 +26,7 @@
         .full-height {
             min-height: 100vh;
             height: 100%;
-        }
-
-        .main-content {
-            display: block;
-            width: calc(100% - 240px);
-            position: relative;
-            margin-left: 240px;
-            height: 100%;
-            padding-top: 110px;
-        }
-
-        .content-body {
-            display: block;
             width: 100%;
-            height: 100%;
-            padding-left: 20px;
-            padding-right: 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-            min-height: calc(100vh - 110px - 100px);
-        }
-
-        @media screen and (max-width: 990px) {
-            .main-content {
-                width: 100%;
-                margin-left: 0;
-            }
-        }
-
-        @media screen and (min-width: 768px) {
-            .content-body {
-                padding-left: 40px;
-                padding-right: 40px;
-            }
         }
 
         .fade-enter {
@@ -120,12 +87,10 @@
 <body>
 <div id="app">
     <div class="full-height" :style="style">
-        <main v-bind:class="{'main-content': $route.path.indexOf('/auth') === -1}">
-            <div v-bind:class="{'content-body': $route.path.indexOf('/auth') === -1}">
-                <transition name="animation" mode="out-in" appear>
-                    <router-view></router-view>
-                </transition>
-            </div>
+        <main>
+            <transition name="animation" mode="out-in" appear>
+                <router-view></router-view>
+            </transition>
         </main>
     </div>
 </div>
